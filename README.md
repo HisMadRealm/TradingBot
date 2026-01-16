@@ -1,7 +1,5 @@
 # 🧬🐳 Polymarket Advanced Trading Bot
 
-Meta-trading bot with **advanced statistical whale aggregation
-
 ## Advanced Features
 
 | Feature | Description |
