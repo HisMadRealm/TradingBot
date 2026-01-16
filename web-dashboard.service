@@ -1,0 +1,20 @@
+[Unit]
+Description=Polymarket Trading Bot Web Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/polymarket-bot
+Environment="PATH=/opt/polymarket-bot/venv/bin"
+
+ExecStart=/opt/polymarket-bot/venv/bin/python web_dashboard.py
+
+Restart=always
+RestartSec=10
+
+StandardOutput=append:/opt/polymarket-bot/web.log
+StandardError=append:/opt/polymarket-bot/web.log
+
+[Install]
+WantedBy=multi-user.target

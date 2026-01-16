@@ -1,0 +1,24 @@
+[Unit]
+Description=Polymarket Unified Trading Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/polymarket-bot
+Environment="PATH=/opt/polymarket-bot/venv/bin"
+
+# Run unified trader (dry-run mode)
+# Remove --dry-run and add --live for real trading
+ExecStart=/opt/polymarket-bot/venv/bin/python new_trader.py --cycles 1000 --interval 60
+
+# Auto-restart on failure
+Restart=always
+RestartSec=30
+
+# Logging
+StandardOutput=append:/opt/polymarket-bot/bot.log
+StandardError=append:/opt/polymarket-bot/bot.log
+
+[Install]
+WantedBy=multi-user.target
